@@ -20,6 +20,13 @@
 * Coding is 75%
 * Images are 25%
 
+### My Idea for Graphics
+
 ![Engineer](Assets/images/PNG/engineer card.png)
 ![Intern](Assets/images/PNG/intern card.png)
 ![Manager](Assets/images/PNG/manager card.png)
+
+### Screenshot of User Input
+
+
+### Screenshot of Employee Contacts
