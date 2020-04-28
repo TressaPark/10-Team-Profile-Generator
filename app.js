@@ -12,7 +12,7 @@ const employees = [];
 
 function initApp() {
     startHTML();
-    addMember();
+    addEmployee();
 }
 
 function addEmployee() {
@@ -57,22 +57,26 @@ function addEmployee() {
     ],
     }, 
 ])
-//   If employee is an engineer, intern, or manager then this informaton will be added.
+//   If employee is an engineer, intern, or manager then this informaton will be added accordingly.
             .then(function ({name, id, email, role}) {
                 let roleInfo = "";
                 if (role === "Engineer") {
-                    roleInfo = "Githab User Name";
+                    roleInfo = "Github User Name";
                 } else if (role === "Intern") {
                     roleInfo = "School";
                 } else if (role === "Manager") {
                     roleInfo = "Office Number";
-                }    
-                {
+                }
+                inquirer.prompt([{
+                    message: `Enter employee's ${roleInfo}`,
+                    name: "roleInfo"
+                ,)    
+            {
                     type: "list",
                     name: "moreEmployees",
                     message: "Would you like to add another employee?",
                     choices: ["yes", "no"],    
-            
+            }])
                 .then(function({roleInfo, moreEmployees}) {
                     let newEmployee;
                     if (role === "Engineer") { 
@@ -81,7 +85,7 @@ function addEmployee() {
                         newEmployee = new Intern(name, id, email, roleInfo);
                     } else {
                         newMember = new Manager(name, id, email, roleInfo);
-
+                    }
                     employees.push(newEmployee);
                     addHtml(newEmployee)
                     .then(function() {
@@ -89,8 +93,11 @@ function addEmployee() {
                             addEmployee();
                         } else {
                             finishHtml();   
-            }
-    // });
+                        }
+                    });
+            });
+        });
+}    
     //         if (response.role ==="Intern") {
     //             inquirer.prompt ( [
     //         {
@@ -151,4 +158,4 @@ function addEmployee() {
 //     })
 // }
 
-init();
+initApp();
