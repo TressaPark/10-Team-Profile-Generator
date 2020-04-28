@@ -20,6 +20,6 @@
 * Coding is 75%
 * Images are 25%
 
-![Engineer](engineer card.png)
-![Intern](intern card.png)
-![Manager](manager card.png)
+![Engineer](Assets/images/PNG/engineer card.png)
+![Intern](Assets/images/PNG/intern card.png)
+![Manager](Assets/images/PNG/manager card.png)
