@@ -17,9 +17,8 @@ function initApp() {
 
 function addEmployee() {
     inquirer.prompt([{
-
     },
-    {
+{
 
 // const path = require("path");
 // const output_dir = path.resolve(_dirname,"output");
@@ -51,12 +50,8 @@ function addEmployee() {
     name: "role",
     message: "Select this employee's role.",
     choices: [
-        "Engineer",
-        "Intern",
-        "Manager"
-    ],
-    }, 
-])
+        "Engineer", "Intern", "Manager"],
+}])
 //   If employee is an engineer, intern, or manager then this informaton will be added accordingly.
             .then(function ({name, id, email, role}) {
                 let roleInfo = "";
@@ -64,14 +59,14 @@ function addEmployee() {
                     roleInfo = "Github User Name";
                 } else if (role === "Intern") {
                     roleInfo = "School";
-                } else if (role === "Manager") {
+                } else {
                     roleInfo = "Office Number";
                 }
                 inquirer.prompt([{
                     message: `Enter employee's ${roleInfo}`,
                     name: "roleInfo"
-                ,)    
-            {
+                },    
+                {
                     type: "list",
                     name: "moreEmployees",
                     message: "Would you like to add another employee?",
