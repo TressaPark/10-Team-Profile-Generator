@@ -10,7 +10,7 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/main");
 
-const employees = [];
+const employeesArray = [];
 
 function initApp() {
     //startHTML();
@@ -44,6 +44,18 @@ function addEmployee()
     ])
         .then(function(answer){
         console.log(answer);
+        console.log(answer.role);
+        if (answer.role == "Engineer"){
+            addEngineer(answer);
+        }
+        if (answer.role == "Intern"){
+            addIntern(answer);
+        }
+        if (answer.role == "Manager"){
+            addManager(answer);
+        }
+
+        //if user picks anwer.role
             // //if engineer, call engineer fx
             // addEngineer(answer);
             // // if intern, call intern fx
@@ -52,8 +64,7 @@ function addEmployee()
             // addManager(answer);
     });
         }
-        function addManager(){
-        }
+
         function addManager(answer){
         return inquirer.prompt([       
         {
@@ -61,14 +72,30 @@ function addEmployee()
                 name: "officePhone",
                 message: "Enter this employee's office phone."
         },
-    ])
-        .then(function(managerAnswer){
-            console.log(answer);
-            var myManager= new Manager(answer.name, answer.id, answer.email, managerAnswer.officePhone)
-            console.log(myManager);
-    });
+        {
+            type: "list",
+            name: "moreEmployees",
+            message: "Would you like to add another employee?",
+            choices: ["yes", "no"], 
         }
-        function addIntern(){
+    ])  .then(function(managerAnswer){
+            // console.log(answer);
+            //use answer and manager answer to build manager class
+            var myManager= new Manager(answer.name, answer.id, answer.email, managerAnswer.officePhone)
+            // console.log(myManager);
+            //push the manager into the employee array
+            employeesArray.push(myManager);
+            console.log(employeesArray);
+            managerAnswer.moreEmployees
+            if(managerAnswer.moreEmployees == "yes"){
+                addEmployee();
+            } 
+            else {
+                console.log("finished");
+            }
+            //if yes, then addEmployee
+            //if no, stop the questions and create the readable card file
+    });
         }
         function addIntern(answer){
         return inquirer.prompt([   
@@ -77,13 +104,30 @@ function addEmployee()
             name: "school",
             message: "Enter this employee's school."
         },
-    ]).then(function(internAnswer){
-        console.log(answer);
-        var myIntern= new Intern(answer.name, answer.id, answer.email, internAnswer.school)
-        console.log(myIntern);
-    });
+        {
+            type: "list",
+            name: "moreEmployees",
+            message: "Would you like to add another employee?",
+            choices: ["yes", "no"], 
         }
-        function addEngineer(){
+    ])  .then(function(internAnswer){
+            // console.log(answer);
+            //add intern then add to employee array
+            var myIntern= new Intern(answer.name, answer.id, answer.email, internAnswer.school)
+            // console.log(myIntern);
+            // push intern into the employee array
+            employeesArray.push(myIntern);
+            console.log(employeesArray)
+            internAnswer.moreEmployees
+            if(internAnswer.moreEmployees == "yes"){
+                addEmployee();
+            }
+            else {
+                console.log("finished");
+            }
+            //if yes, then addEmployee
+            //if no, stop the questions and create the readable card file
+    });
         }
         function addEngineer(answer){
         return inquirer.prompt([
@@ -91,11 +135,32 @@ function addEmployee()
             type: "input",
             name: "github",
             message: "Enter this employee's Github."
+        },
+        {
+            type: "list",
+            name: "moreEmployees",
+            message: "Would you like to add another employee?",
+            choices: ["yes", "no"],    
+         }
+    ])  .then(function(engineerAnswer){
+            // console.log(answer);
+            var myEngineer= new Engineer(answer.name, answer.id, answer.email, engineerAnswer.github)
+            // console.log(myEngineer);
+            employeesArray.push(myEngineer);
+            console.log(employeesArray)
+            engineerAnswer.moreEmployees
+            if(engineerAnswer.moreEmployees == "yes"){
+            addEmployee();
         }
-    ]).then(function(engineerAnswer){
-        console.log(answer);
-        var myEngineer= new Engineer(answer.name, answer.id, answer.email, engineerAnswer.github)
-        console.log(myEngineer);
+        else {
+            console.log("finished");
+    }       //if they say yes what do we do?
+            //add another employee
+            //addEmployee();
+
+            //if they say no what do we do?
+            //stop the questions send the employee array to make cards
+            //turn into a readable file
     });
         }
         const writeHTML = HTML => {
