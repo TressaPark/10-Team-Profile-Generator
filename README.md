@@ -22,11 +22,12 @@
 
 ### My Idea for Graphics
 
-![Engineer](Assets/images/PNG/engineer card.png)
-![Intern](Assets/images/PNG/intern card.png)
-![Manager](Assets/images/PNG/manager card.png)
+![Engineer](Assets/images/PNG/engineer_card.png)
+![Intern](Assets/images/PNG/intern_card.png)
+![Manager](Assets/images/PNG/manager_card.png)
 
 ### Screenshot of User Input
-
+![Screenshot_User](XXXXXX)
 
 ### Screenshot of Employee Contacts
+![Screenshot_Contacts](XXXXXX)
