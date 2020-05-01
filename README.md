@@ -30,4 +30,4 @@
 ![Screenshot_User](Assets/images/PNG/Input_Screenshot.png)
 
 ### Screenshot of Employee Contacts
-![Screenshot_Contacts](XXXXXX)
+![Screenshot_Contacts](Assets/images/PNG/Employee_Screenshot.png)
