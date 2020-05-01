@@ -8,7 +8,7 @@ const fs = require("fs");
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
-const render = require("./lib/main");
+const render = require("./lib/Main");
 
 const employeesArray = [];
 
@@ -64,13 +64,12 @@ function addEmployee()
             // addManager(answer);
     });
         }
-
         function addManager(answer){
         return inquirer.prompt([       
         {
-                type: "input",
-                name: "officePhone",
-                message: "Enter this employee's office phone."
+            type: "input",
+            name: "officePhone",
+            message: "Enter this employee's office phone."
         },
         {
             type: "list",
@@ -92,6 +91,7 @@ function addEmployee()
             } 
             else {
                 console.log("finished");
+                fs.writeFileSync(outputPath, render(employeesArray),"utf-8");
             }
             //if yes, then addEmployee
             //if no, stop the questions and create the readable card file
@@ -122,8 +122,9 @@ function addEmployee()
             if(internAnswer.moreEmployees == "yes"){
                 addEmployee();
             }
-            else {
-                console.log("finished");
+        else {
+            console.log("finished");
+            fs.writeFileSync(outputPath, render(employeesArray),"utf-8");
             }
             //if yes, then addEmployee
             //if no, stop the questions and create the readable card file
@@ -154,6 +155,7 @@ function addEmployee()
         }
         else {
             console.log("finished");
+            fs.writeFileSync(outputPath, render(employeesArray),"utf-8");
     }       //if they say yes what do we do?
             //add another employee
             //addEmployee();
