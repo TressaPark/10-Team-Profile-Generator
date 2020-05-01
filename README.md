@@ -21,7 +21,7 @@
 * Images are 25%
 
 ### My Idea for Graphics
-
+![Engineer](Assets/images/PNG/employee_card.png)
 ![Engineer](Assets/images/PNG/engineer_card.png)
 ![Intern](Assets/images/PNG/intern_card.png)
 ![Manager](Assets/images/PNG/manager_card.png)
