@@ -27,7 +27,7 @@
 ![Manager](Assets/images/PNG/manager_card.png)
 
 ### Screenshot of User Input
-![Screenshot_User](XXXXXX)
+![Screenshot_User](Assets/images/PNG/Input_Screenshot.png)
 
 ### Screenshot of Employee Contacts
 ![Screenshot_Contacts](XXXXXX)
